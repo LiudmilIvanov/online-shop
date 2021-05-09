@@ -1,1 +1,1 @@
-web: java -jar online-shop-project - 0.0.1-SNAPSHOT
+web: java -jar target/online-shop-project-1.0.0.jar
