@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  
+  
+
+
+</head>
+
+<header>
+	<div>
+		 <!-- Navigation -->
+  <nav th:fragment="navigation(activeTab)" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a sec:authorize="isAuthenticated()" class="navbar-brand" href="#">
+      <span th:text="|Hello, ${#authentication.name}|"> Hello! {username}</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item" th:classappend="${activeTab == 'home'}? 'active'">
+            <a class="nav-link" href="/">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+           <li	sec:authorize="isAnonymous()"  th:classappend="${activeTab == 'register'}? 'active'" class="nav-item">
+            <a class="nav-link" href="/register">Register</a>
+          </li>
+           <li  sec:authorize="isAnonymous()" th:classappend="${activeTab == 'login'}? 'active'" class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+          <li  th:classappend="${activeTab == 'products'}? 'active'" class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                           role="button" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
+                            Products
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/products/coffee">Coffee</a>
+                            <a class="dropdown-item" href="/products/tea">Tea</a>
+                             <a class="dropdown-item" href="/products/nuts">Nuts</a>
+                            <a sec:authorize="isAuthenticated()" class="dropdown-item" href="/products/add">Add product</a>
+
+                        </div>
+                    </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>-->
+          <li class="nav-item">
+            <a class="nav-link" href="/contactus">Contact</a>
+          </li> 
+          <li sec:authorize="isAuthenticated()" th:classappend="${activeTab == 'profile'}? 'active'" class="nav-item">
+            <a class="nav-link" href="/user/profile">Profile</a>
+          </li>
+           <li  sec:authorize="isAuthenticated()" th:classappend="${activeTab == 'cart'}? 'active'" class="nav-item">
+            <a class="nav-link" href="/cart">ShoppingCart</a>
+          </li>
+          <li sec:authorize="isAuthenticated()"  class="nav-item">
+            <a  class="nav-link" href="/logout">Sign out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+	</div>
+
+</header>
+
+ <!-- Footer -->
+  <footer th:fragment="footer" class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Healthy food shop 2021</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
