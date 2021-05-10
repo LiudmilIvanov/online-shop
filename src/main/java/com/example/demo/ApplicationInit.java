@@ -50,11 +50,19 @@ public class ApplicationInit implements CommandLineRunner{
 		intRoles();
 		initCategories();
 	
-	/*	UserEntity userAdmin = new UserEntity();
+		UserEntity userAdmin = new UserEntity();
 		userAdmin.setPassword(passwordEncoder.encode("123"));
 		userAdmin.setEmail("admin@abv.bg");
-		userRepository.save(userAdmin);*/
+		userRepository.save(userAdmin);
 		
+		ProductEntity productOne = new ProductEntity();
+		productOne.setCategory(new CategoryEntity(CategoryTypeEnum.TEA));
+		productOne.setDescription("dfsf");
+		productOne.setName("tea");
+		productOne.setPrice(new BigDecimal(1));
+		productOne.setImageUrl("https://teahousesofia.com/assets/teas/_51B3423_resized.jpg");
+		
+	
 	}
 
 
