@@ -50,7 +50,7 @@ public class ApplicationInit implements CommandLineRunner{
 		intRoles();
 		initCategories();
 	
-		UserEntity userAdmin = new UserEntity();
+	/*	UserEntity userAdmin = new UserEntity();
 		userAdmin.setPassword(passwordEncoder.encode("123"));
 		userAdmin.setEmail("admin@abv.bg");
 		userRepository.save(userAdmin);
@@ -60,7 +60,7 @@ public class ApplicationInit implements CommandLineRunner{
 		productOne.setDescription("dfsf");
 		productOne.setName("tea");
 		productOne.setPrice(new BigDecimal(1));
-		productOne.setImageUrl("https://teahousesofia.com/assets/teas/_51B3423_resized.jpg");
+		productOne.setImageUrl("https://teahousesofia.com/assets/teas/_51B3423_resized.jpg");*/
 		
 	
 	}
