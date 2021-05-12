@@ -56,7 +56,7 @@ public class ApplicationInit implements CommandLineRunner{
 		intRoles();
 		initCategories();
 		//initFirstUser();
-		initInitialProducts();
+	//	initInitialProducts();
 	
 	}
 
