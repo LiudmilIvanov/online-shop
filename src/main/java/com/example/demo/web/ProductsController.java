@@ -100,12 +100,10 @@ public class ProductsController {
 	
 	@GetMapping("/buy/{id}")
 	public String buyProduct(@PathVariable Long id, Principal principal, Model model) {
-	//	String path = request.getContextPath();
 		if (!model.containsAttribute("productAddBindingModel")) {
 			model.addAttribute("productAddBindingModel", new ProductAddBindingModel());
 		}
 	
-		//TODO add relative path.
 		orderService.addOrder(id, principal.getName());
 		
 		

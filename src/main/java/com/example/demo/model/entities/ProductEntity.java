@@ -44,48 +44,54 @@ public class ProductEntity extends BaseEntity {
 		return description;
 	}
 
-	public void setDescription(String description) {
+	public ProductEntity setDescription(String description) {
 		this.description = description;
+		return this;
 	}
 
 	public CategoryEntity getCategory() {
 		return category;
 	}
 
-	public void setCategory(CategoryEntity category) {
+	public ProductEntity setCategory(CategoryEntity category) {
 		this.category = category;
+		return this;
 	}
 
 	public String getImageUrl() {
 		return imageUrl;
 	}
 
-	public void setImageUrl(String imageUrl) {
+	public ProductEntity setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
+		return this;
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public void setName(String name) {
+	public ProductEntity setName(String name) {
 		this.name = name;
+		return this;
 	}
 
 	public BigDecimal getPrice() {
 		return price;
 	}
 
-	public void setPrice(BigDecimal price) {
+	public ProductEntity setPrice(BigDecimal price) {
 		this.price = price;
+		return this;
 	}
 
 	public long getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(long quantity) {
+	public ProductEntity setQuantity(long quantity) {
 		this.quantity = quantity;
+		return this;
 	}
 
 	@Override

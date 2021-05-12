@@ -48,13 +48,15 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public void save(UserRegisterServiceModel userRegisterServiceModel) {
 		UserEntity user = modelMapper.map(userRegisterServiceModel, UserEntity.class);
-	
-		
 		user.setPassword(passwordEncoder.encode(userRegisterServiceModel.getPassword()));
-		user.setRoles(List.of(roleService.findByName(RoleTypeEnum.ROLE_USER)));
+		
+		if (userRepository.count() == 0) {
+			user.setRoles(List.of(roleService.findByName(RoleTypeEnum.ROLE_ADMIN)));
+		} else {
+			user.setRoles(List.of(roleService.findByName(RoleTypeEnum.ROLE_USER)));
+		}
 		
 		userRepository.save(user);
-		
 		
 		UserDetails userDetails = userDetailsService.loadUserByUsername(user.getUsername());
 		

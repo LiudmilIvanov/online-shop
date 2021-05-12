@@ -131,12 +131,5 @@ public class ProductServiceImpl implements ProductService{
 		
 		return productRepository.findTotalProductsSum();
 	}
-	
 
-
-
-
-
-
-	
 }

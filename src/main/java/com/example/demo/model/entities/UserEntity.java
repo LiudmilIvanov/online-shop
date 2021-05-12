@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -38,10 +39,8 @@ public class UserEntity extends BaseEntity{
 	@Column
 	private String city;
 	
-	@OneToMany(fetch = FetchType.EAGER)
-	@JoinColumn(name = "user_id")
+	@ManyToMany(fetch = FetchType.EAGER)
 	List<RoleEntity> roles;
-	
 	
 	public int getPhoneNumber() {
 		return phoneNumber;

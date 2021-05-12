@@ -51,35 +51,6 @@ public class UserController {
 		return "login";
 	}
 	
-/*	@PostMapping("/login")
-	public String loginConfirm(@Valid @ModelAttribute UserLoginBindingModel userLoginBindingModel,
-			BindingResult bindingResult, RedirectAttributes redirectAttribute) {
-		if (bindingResult.hasErrors()) {
-			redirectAttribute.addAttribute("userLoginBindingModel" , userLoginBindingModel);
-			redirectAttribute.addAttribute("org.springframework.validation.BindingResult.userLoginBindingModel", bindingResult);
-		
-			return "redirect:/login";
-		}
-		
-		//TODO
-		
-		return "redirect:/login";
-	}*/
-	
-	/*@PostMapping("/login-error")
-	public ModelAndView onLoginError(
-			@ModelAttribute(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_USERNAME_KEY) String username) {
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("error", "bad.credentials");
-		modelAndView.addObject("username", username);
-		modelAndView.setViewName("/login");
-		
-		
-		
-		return modelAndView;
-	}*/
-	
-	
 	@GetMapping("/register")
 	public String register(Model model) {
 		if (!model.containsAttribute("userRegisterBindingModel")) {
@@ -116,19 +87,6 @@ public class UserController {
 		
 		return "redirect:/login";
 		
-		/*if (userRegisterBindingModel.getPassword().equals(userRegisterBindingModel.getConfirmPassword())) {
-			UserRegisterServiceModel userRegisterServiceModel =
-					modelMapper.map(userRegisterBindingModel, UserRegisterServiceModel.class);
-			
-			userService.save(userRegisterServiceModel);
-
-			return "redirect:/login";
-		} else {
-			redirectAttribute.addFlashAttribute("userRegisterBindingModel", userRegisterBindingModel);
-			System.out.println();
-			return "redirect:/register";
-		
-		}*/
 	}
 	
 	@GetMapping("/logout")
@@ -140,7 +98,6 @@ public class UserController {
 			
 			return "redirect:/";
 		}
-		
 		return "redirect:/";
 	}
 	

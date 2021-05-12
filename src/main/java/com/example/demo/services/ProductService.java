@@ -25,5 +25,6 @@ public interface ProductService {
 	
 	public BigDecimal getTotalSum();
 	
+	
 
 }

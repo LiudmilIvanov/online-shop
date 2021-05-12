@@ -66,10 +66,10 @@
                   <span class="tagged_as"><strong>Tags:</strong> <a rel="tag" href="#">mens</a>, <a rel="tag" href="#">womens</a>.</span>
               </div>
               <div class="m-bot15"> <strong>Price : </strong> <!--   <span class="amount-old">$544</span> --> <span class="pro-price" th:text="|$ *{price}|"> $300.00</span></div>
-              <div class="form-group">
+           <!--    <div class="form-group">
                   <label>Quantity</label>
                    <input  type="number" step="0.1" class="form-control" id="price" name="price" placeholder="Select quantity:" style="width:150px;height:30px;border:1px solid #000;"/>
-              </div>
+              </div> -->
               <p>
             
                   <a sec:authorize="isAuthenticated()" class="btn" th:href="@{/products/buy/{id}(id = *{id})}">
